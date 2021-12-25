@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import requests
 
@@ -23,9 +24,9 @@ while True:
     img_path = img = "https://vkclub.su/_data/stickers/"+name+"/sticker_vk_"+name+"_"+increment+".png"
     response = requests.get(img_path)
     _ += 1
-    filename = "result/"+name+"/"+name+"_"+str(increment)+".png"
+    filename = name+"_"+str(increment)+".png"
     if response.status_code == 200:
-        file = open(filename, "wb")
+        file = open("result/"+name+"/"+filename, "wb")
         file.write(response.content)
         file.close()
         print(filename+" downloaded!")
